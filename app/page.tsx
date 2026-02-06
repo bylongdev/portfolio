@@ -1,17 +1,4 @@
-/* import bg from "@/resources/imgs/city-landscape.png";
-import Image from "next/image";
- */
-
 import NavBar from "@/components/sections/navBar";
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import HeroSection from "@/components/sections/hero";
 import ProjectSection from "@/components/sections/project";
 import AboutSection from "@/components/sections/about";
