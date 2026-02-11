@@ -79,10 +79,19 @@ export default function Home() {
           </div>
         </section>
       </main>
+      {/* <div className="absolute bottom-0 -z-10 w-full md:h-200">
+        <div className="relative h-full w-full">
+          <Image
+            src={footer_bg}
+            alt="Footer Background"
+            className="absolute w-full object-cover object-top"
+          />
+        </div>
+      </div> */}
       <Image
         src={footer_bg}
         alt="Footer Background"
-        className="absolute -bottom-10 -z-10 object-cover object-top md:-bottom-50"
+        className="absolute bottom-0 -z-20 w-full object-cover object-top lg:max-h-200"
       />
     </div>
   );
