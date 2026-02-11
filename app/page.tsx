@@ -6,13 +6,10 @@ import ExperienceSection from "@/components/sections/experience";
 import ContactSection from "@/components/sections/contact";
 import { Separator } from "@/components/ui/separator";
 
-import footer_bg from "@/resources/imgs/city-landscape.png";
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="relative">
-      <main className="m-auto flex w-9/10 max-w-360 flex-col items-center">
+      <main className="m-auto flex max-w-360 flex-col items-center md:w-9/10">
         {/* Navbar */}
         <NavBar />
 

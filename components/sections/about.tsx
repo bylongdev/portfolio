@@ -20,7 +20,15 @@ function AboutSection() {
           about me
         </CardTitle> */}
       </CardHeader>
-      <CardContent className="grid grid-cols-2">
+      <CardContent className="flex flex-col gap-6 md:flex-row">
+        <div className="flex h-100 grow justify-center md:order-2 md:h-full">
+          <Image
+            src={portrait}
+            alt="Portrait"
+            width={400}
+            className="rounded-2xl object-cover"
+          />
+        </div>
         <Accordion
           type="multiple"
           defaultValue={["who", "what", "goal", "learning", "how"]}
@@ -70,15 +78,6 @@ function AboutSection() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-
-        <div className="flex grow justify-center">
-          <Image
-            src={portrait}
-            alt="Portrait"
-            width={400}
-            className="rounded-2xl object-cover"
-          />
-        </div>
       </CardContent>
     </Card>
   );
