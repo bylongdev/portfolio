@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardContent, CardDescription, CardFooter } from "../ui/card";
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
 import { Field, FieldGroup, FieldSet } from "../ui/field";
@@ -41,14 +34,9 @@ function ContactSection() {
   return (
     <Card className="bg-background/0 relative overflow-hidden border-none shadow-none">
       <CardContent>
-        <Card className="bg-background/0 relative overflow-hidden">
-          <Image
-            src={footer_bg}
-            alt="Footer Background"
-            className="absolute bottom-0 -z-10 object-cover object-top blur-[2px] md:-top-5"
-          />
+        <Card className="bg-background/10 relative overflow-hidden border-0 backdrop-blur-xs">
           <CardContent className="flex w-full flex-col-reverse justify-between gap-6 md:flex-row">
-            <Card className="bg-background/85 flex flex-col gap-6 md:w-2/5">
+            <Card className="bg-background/90 flex flex-col gap-6 md:w-2/5">
               <CardContent className="flex grow flex-col gap-6">
                 <div className="flex grow flex-col">
                   <div className="text-muted-foreground font-serif text-4xl tracking-wide">
@@ -124,7 +112,7 @@ function ContactSection() {
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-background/85 grow">
+            <Card className="bg-background/90 grow">
               <CardContent className="grow">
                 <form className="h-full" onSubmit={form.handleSubmit(onSubmit)}>
                   <FieldSet className="h-full">
