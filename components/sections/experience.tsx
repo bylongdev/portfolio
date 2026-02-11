@@ -47,13 +47,13 @@ const EXPERIENCES = [
 
 function ExperienceSection() {
   return (
-    <Card>
-      <CardHeader className="relative">
+    <Card className="border-0 shadow-none">
+      {/* <CardHeader className="relative">
         <Separator className="absolute top-0 left-0 translate-y-4" />
         <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
           experiences
         </CardTitle>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent>
         <div className="relative m-6 border-l">
           {EXPERIENCES.map((exp, index) => (

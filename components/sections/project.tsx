@@ -13,44 +13,104 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+
+const PROJECTS = [
+  {
+    name: "Job Tracker",
+    img_url: job_tracker,
+    description:
+      "A job application tracking platform designed to organise applications, manage timelines, and keep all related information in one place.",
+    tech_stack: [
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Prisma",
+      "Node.js",
+      "Tailwindcss",
+    ],
+    github: "https://github.com/bylongdev/job-tracker",
+    demo: "",
+  },
+  {
+    name: "Weather App",
+    img_url: job_tracker,
+    description:
+      "A modern weather app showing real-time forecasts using the OpenWeather API. Built with Next.js, Tailwind CSS, and Recharts, it displays temperature, humidity, and trends in a sleek dark UI with smooth animations and responsive design for all devices.",
+    tech_stack: [
+      "TypeScript",
+      "JavaScript",
+      "Next.js",
+      "Recharts",
+      "OpenWeatherAPI",
+      "Tailwindcss",
+    ],
+    github: "https://github.com/bylongdev/weather-app",
+    demo: "https://weather-app-flame-two-18.vercel.app/",
+  },
+  {
+    name: "Manga Lib",
+    img_url: job_tracker,
+    description:
+      "A modern manga library platform that fetches and syncs real-time manga updates from external APIs. Built with Next.js, TypeScript, Docker, and MongoDB, it features cached endpoints, automated background workers, and a clean, anime-inspired UI designed for fast, responsive browsing.",
+    tech_stack: [
+      "TypeScript",
+      "JavaScript",
+      "MongoDB",
+      "Redis",
+      "Node.js",
+      "Tailwindcss",
+      "Docker",
+      "Nginx",
+      "MangaDexAPI",
+    ],
+    github: "https://github.com/bylongdev/manga-lib",
+    demo: "https://manga-lib.vercel.app/",
+  },
+  {
+    name: "Job Tracker",
+    img_url: job_tracker,
+    description:
+      "A job application tracking platform designed to organise applications, manage timelines, and keep all related information in one place.",
+    tech_stack: [
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Prisma",
+      "Node.js",
+      "Tailwindcss",
+    ],
+    github: "https://github.com/bylongdev/job-tracker",
+    demo: "",
+  },
+];
 
 function ProjectSection() {
   return (
     <Card className="border-0 shadow-none">
       <CardHeader className="relative">
-        <Separator className="absolute top-0 left-0 translate-y-4" />
+        {/* <Separator className="absolute top-0 left-0 translate-y-4" />
         <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
           projects
-        </CardTitle>
+        </CardTitle> */}
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <Card className="w-full flex-row gap-6 p-0">
-          <CardContent className="w-fit border-r py-6">
+        <Card className="h-100 w-full flex-row gap-6 p-0">
+          <CardContent className="flex w-fit items-center py-6">
             <Image
-              src={job_tracker}
+              src={PROJECTS[0].img_url}
               alt="Job Tracker Thumbnail"
-              className="w-200"
+              className="w-full object-cover"
             />
           </CardContent>
 
           <CardContent className="flex grow flex-col items-end justify-between gap-8 p-6">
             <div className="flex flex-col items-start gap-2">
-              <CardTitle className="text-2xl">Job Tracker</CardTitle>
-              <CardDescription>
-                A job application tracking platform designed to organise
-                applications, manage timelines, and keep all related information
-                in one place.
-              </CardDescription>
+              <CardTitle className="text-2xl">{PROJECTS[0].name}</CardTitle>
+              <CardDescription>{PROJECTS[0].description}</CardDescription>
 
               <div className="flex flex-wrap gap-2">
-                {[
-                  "TypeScript",
-                  "JavaScript",
-                  "PostgreSQL",
-                  "Prisma",
-                  "Node.js",
-                  "Tailwindcss",
-                ].map((tag, index) => (
+                {PROJECTS[0].tech_stack.map((tag, index) => (
                   <Badge
                     key={index}
                     variant={"secondary"}
@@ -62,87 +122,44 @@ function ProjectSection() {
               </div>
             </div>
             <div className="flex gap-2 justify-self-end">
-              <Button variant={"outline"} className="hover:cursor-pointer">
-                View code
+              <Button
+                variant={"default"}
+                className="hover:cursor-pointer"
+                disabled={!PROJECTS[0].github}
+              >
+                <Link href={PROJECTS[0].github} target="_blank">
+                  View code
+                </Link>
               </Button>
-              <Button variant={"outline"} className="hover:cursor-pointer">
-                Live demo
+              <Button
+                variant={"outline"}
+                className="hover:cursor-pointer"
+                disabled={!PROJECTS[0].demo}
+              >
+                <Link href={PROJECTS[0].demo} target="_blank">
+                  Live demo
+                </Link>
               </Button>
             </div>
           </CardContent>
         </Card>
-        <CardTitle>Featured Projects</CardTitle>
+        <CardTitle className="pt-10 text-lg">Featured Projects</CardTitle>
         <div className="grid grid-cols-3 gap-4">
-          <Card>
-            <CardContent className="border-b p-2">
-              <Image
-                src={job_tracker}
-                alt="Job Tracker Thumbnail"
-                className="w-200"
-              />
-            </CardContent>
-            <CardFooter className="flex grow flex-col items-end justify-between gap-8">
-              <div className="flex flex-col items-start gap-2">
-                <CardTitle className="text-2xl">Weather App</CardTitle>
-                <CardDescription>
-                  A modern weather app showing real-time forecasts using the
-                  OpenWeather API. Built with Next.js, Tailwind CSS, and
-                  Recharts, it displays temperature, humidity, and trends in a
-                  sleek dark UI with smooth animations and responsive design for
-                  all devices.
-                </CardDescription>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "TypeScript",
-                    "JavaScript",
-                    "PostgreSQL",
-                    "Prisma",
-                    "Node.js",
-                    "Tailwindcss",
-                  ].map((tag, index) => (
-                    <Badge
-                      key={index}
-                      variant={"secondary"}
-                      className="rounded-md text-base font-normal"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex gap-2 justify-self-end">
-                <Button variant={"outline"} className="hover:cursor-pointer">
-                  View code
-                </Button>
-                <Button variant={"outline"} className="hover:cursor-pointer">
-                  Live demo
-                </Button>
-              </div>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardContent className="border-b p-2">
-              <Image
-                src={job_tracker}
-                alt="Job Tracker Thumbnail"
-                className="w-200"
-              />
-            </CardContent>
-
-            <CardFooter className="flex grow flex-col items-end justify-between gap-8">
-              <div className="flex flex-col items-start gap-2">
-                <CardTitle className="text-2xl">Weather App</CardTitle>
-                <CardDescription>
-                  A modern weather app showing real-time forecasts using the
-                  OpenWeather API. Built with Next.js, Tailwind CSS, and
-                  Recharts, it displays temperature, humidity, and trends in a
-                  sleek dark UI with smooth animations and responsive design for
-                  all devices.
-                </CardDescription>
-                <div className="flex flex-wrap gap-2">
-                  {["TypeScript", "JavaScript", "PostgreSQL", "Prisma"].map(
-                    (tag, index) => (
+          {PROJECTS.slice(1).map((item, index) => (
+            <Card key={index}>
+              <CardContent className="border-b p-2">
+                <Image
+                  src={item.img_url}
+                  alt="Job Tracker Thumbnail"
+                  className="w-200"
+                />
+              </CardContent>
+              <CardFooter className="flex grow flex-col items-end justify-between gap-8">
+                <div className="flex flex-col items-start gap-2">
+                  <CardTitle className="text-2xl">{item.name}</CardTitle>
+                  <CardDescription>{item.description}</CardDescription>
+                  <div className="flex flex-wrap gap-2">
+                    {item.tech_stack.map((tag, index) => (
                       <Badge
                         key={index}
                         variant={"secondary"}
@@ -150,64 +167,33 @@ function ProjectSection() {
                       >
                         {tag}
                       </Badge>
-                    ),
-                  )}
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex gap-2 justify-self-end">
-                <Button variant={"outline"} className="hover:cursor-pointer">
-                  View code
-                </Button>
-                <Button variant={"outline"} className="hover:cursor-pointer">
-                  Live demo
-                </Button>
-              </div>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardContent className="border-b p-2">
-              <Image
-                src={job_tracker}
-                alt="Job Tracker Thumbnail"
-                className="w-200"
-              />
-            </CardContent>
-            <CardFooter className="flex grow flex-col items-end justify-between gap-8">
-              <div className="flex flex-col items-start gap-2">
-                <CardTitle className="text-2xl">Weather App</CardTitle>
-                <CardDescription>
-                  A modern weather app showing real-time forecasts using the
-                  OpenWeather API. Built with Next.js, Tailwind CSS, and
-                  Recharts, it displays temperature, humidity, and trends in a
-                  sleek dark UI with smooth animations and responsive design for
-                  all devices.
-                </CardDescription>
-                <div className="flex flex-wrap gap-2">
-                  {["TypeScript", "JavaScript", "PostgreSQL", "Prisma"].map(
-                    (tag, index) => (
-                      <Badge
-                        key={index}
-                        variant={"secondary"}
-                        className="rounded-md text-base font-normal"
-                      >
-                        {tag}
-                      </Badge>
-                    ),
-                  )}
+                <div className="flex gap-2 justify-self-end">
+                  <Button
+                    variant={"default"}
+                    className="hover:cursor-pointer"
+                    disabled={!item.github}
+                  >
+                    <Link href={item.github} target="_blank">
+                      View code
+                    </Link>
+                  </Button>
+                  <Button
+                    variant={"outline"}
+                    className="hover:cursor-pointer"
+                    disabled={!item.demo}
+                  >
+                    <Link href={item.demo} target="_blank">
+                      Live demo
+                    </Link>
+                  </Button>
                 </div>
-              </div>
-
-              <div className="flex gap-2 justify-self-end">
-                <Button variant={"outline"} className="hover:cursor-pointer">
-                  View code
-                </Button>
-                <Button variant={"outline"} className="hover:cursor-pointer">
-                  Live demo
-                </Button>
-              </div>
-            </CardFooter>
-          </Card>
+              </CardFooter>
+            </Card>
+          ))}
         </div>
       </CardContent>
     </Card>

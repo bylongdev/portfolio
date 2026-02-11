@@ -10,26 +10,23 @@ import {
 } from "../ui/card";
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
-import { Field, FieldGroup, FieldLabel, FieldSet } from "../ui/field";
+import { Field, FieldGroup, FieldSet } from "../ui/field";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import { Copy, Github, Linkedin, Mail } from "lucide-react";
+import { Copy, Mail } from "lucide-react";
 import Link from "next/link";
 
 function ContactSection() {
   return (
     <Card className="border-none shadow-none">
-      <CardHeader className="relative">
+      {/* <CardHeader className="relative">
         <Separator className="absolute top-0 left-0 translate-y-4" />
         <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
           contact
         </CardTitle>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent>
         <Card>
-          {/* <CardHeader>
-            <CardTitle>Test</CardTitle>
-          </CardHeader> */}
           <CardContent className="flex w-full justify-between gap-6">
             <Card className="flex w-2/5 flex-col gap-6 border-0 shadow-none">
               <div className="flex grow flex-col">
@@ -62,7 +59,6 @@ function ContactSection() {
                   target="_blank"
                   className="flex items-center gap-2"
                 >
-                  {/* <Linkedin size={18} /> */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -81,7 +77,6 @@ function ContactSection() {
                   target="_blank"
                   className="flex items-center gap-2"
                 >
-                  {/* <Github size={18} /> */}
                   <svg
                     role="img"
                     viewBox="0 0 24 24"
@@ -113,7 +108,6 @@ function ContactSection() {
                     <FieldGroup className="h-full">
                       <FieldGroup className="flex flex-row">
                         <Field>
-                          {/* <FieldLabel htmlFor="fname">Name</FieldLabel> */}
                           <Input
                             id="fname"
                             type="text"
@@ -121,7 +115,6 @@ function ContactSection() {
                           />
                         </Field>
                         <Field>
-                          {/* <FieldLabel htmlFor="lname">Name</FieldLabel> */}
                           <Input
                             id="lname"
                             type="text"
@@ -130,11 +123,9 @@ function ContactSection() {
                         </Field>
                       </FieldGroup>
                       <Field>
-                        {/* <FieldLabel htmlFor="email">Email</FieldLabel> */}
                         <Input id="email" type="email" placeholder="Email" />
                       </Field>
                       <Field className="grow">
-                        {/* <FieldLabel htmlFor="message">Message</FieldLabel> */}
                         <Textarea
                           id="message"
                           className="h-40 resize-none overflow-y-auto"

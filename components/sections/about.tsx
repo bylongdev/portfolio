@@ -13,18 +13,18 @@ import {
 
 function AboutSection() {
   return (
-    <Card>
+    <Card className="border-0 shadow-none">
       <CardHeader className="relative">
-        <Separator className="absolute top-0 left-0 translate-y-4" />
+        {/* <Separator className="absolute top-0 left-0 translate-y-4" />
         <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
           about me
-        </CardTitle>
+        </CardTitle> */}
       </CardHeader>
       <CardContent className="grid grid-cols-2">
         <Accordion
           type="multiple"
           defaultValue={["who", "what", "goal", "learning", "how"]}
-          className="mx-auto max-w-xl gap-4"
+          className="mx-auto w-full max-w-xl gap-4"
         >
           <AccordionItem value="who">
             <AccordionTrigger>Who am I?</AccordionTrigger>
