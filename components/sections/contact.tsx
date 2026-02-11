@@ -45,10 +45,10 @@ function ContactSection() {
           <Image
             src={footer_bg}
             alt="Footer Background"
-            className="absolute -top-5 -z-10 object-cover object-top blur-[2px]"
+            className="absolute bottom-0 -z-10 object-cover object-top blur-[2px] md:-top-5"
           />
-          <CardContent className="flex w-full justify-between gap-6">
-            <Card className="bg-background/92.5 flex w-2/5 flex-col gap-6">
+          <CardContent className="flex w-full flex-col-reverse justify-between gap-6 md:flex-row">
+            <Card className="bg-background/85 flex flex-col gap-6 md:w-2/5">
               <CardContent className="flex grow flex-col gap-6">
                 <div className="flex grow flex-col">
                   <div className="text-muted-foreground font-serif text-4xl tracking-wide">
@@ -124,7 +124,7 @@ function ContactSection() {
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-background/92.5 grow">
+            <Card className="bg-background/85 grow">
               <CardContent className="grow">
                 <form className="h-full" onSubmit={form.handleSubmit(onSubmit)}>
                   <FieldSet className="h-full">
