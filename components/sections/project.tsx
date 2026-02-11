@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 import job_tracker from "@/resources/imgs/job-tracker.png";
+import weather_app from "@/resources/imgs/weather-app.png";
+import manga_app from "@/resources/imgs/manga-lib.png";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -34,7 +37,7 @@ const PROJECTS = [
   },
   {
     name: "Weather App",
-    img_url: job_tracker,
+    img_url: weather_app,
     description:
       "A modern weather app showing real-time forecasts using the OpenWeather API. Built with Next.js, Tailwind CSS, and Recharts, it displays temperature, humidity, and trends in a sleek dark UI with smooth animations and responsive design for all devices.",
     tech_stack: [
@@ -50,7 +53,7 @@ const PROJECTS = [
   },
   {
     name: "Manga Lib",
-    img_url: job_tracker,
+    img_url: manga_app,
     description:
       "A modern manga library platform that fetches and syncs real-time manga updates from external APIs. Built with Next.js, TypeScript, Docker, and MongoDB, it features cached endpoints, automated background workers, and a clean, anime-inspired UI designed for fast, responsive browsing.",
     tech_stack: [
@@ -146,12 +149,12 @@ function ProjectSection() {
         <CardTitle className="pt-10 text-lg">Featured Projects</CardTitle>
         <div className="grid grid-cols-3 gap-4">
           {PROJECTS.slice(1).map((item, index) => (
-            <Card key={index}>
-              <CardContent className="border-b p-2">
+            <Card key={index} className="pt-0">
+              <CardContent className="border-b p-0">
                 <Image
                   src={item.img_url}
                   alt="Job Tracker Thumbnail"
-                  className="w-200"
+                  className="h-80 w-full rounded-t-xl object-cover object-top"
                 />
               </CardContent>
               <CardFooter className="flex grow flex-col items-end justify-between gap-8">
