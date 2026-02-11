@@ -5,14 +5,7 @@ Note: Add accordion for each entry to open more detail each time clicked
 */
 
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import { Separator } from "../ui/separator";
+import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -28,7 +21,7 @@ const EXPERIENCES = [
     to: " June 2025",
     location: "Melbourne, Victoria, Australia",
     description: (
-      <CardContent className="space-y-2 text-base">
+      <>
         <p>
           <strong>Key Responsibilities:</strong>
         </p>
@@ -86,7 +79,7 @@ const EXPERIENCES = [
             resolving hosting misconfigurations and database errors.
           </li>
         </ul>
-      </CardContent>
+      </>
     ),
   },
   {
@@ -96,7 +89,7 @@ const EXPERIENCES = [
     to: " April 2025",
     location: "Melbourne, Victoria, Australia",
     description: (
-      <CardContent className="space-y-2 text-base">
+      <>
         <p>
           <strong>Key Responsibilities:</strong>
         </p>
@@ -150,7 +143,7 @@ const EXPERIENCES = [
             integration errors.
           </li>
         </ul>
-      </CardContent>
+      </>
     ),
   },
   {
@@ -160,7 +153,7 @@ const EXPERIENCES = [
     to: " June 2025",
     location: "Melbourne, Victoria, Australia",
     description: (
-      <CardContent className="space-y-2 text-base">
+      <>
         <p>
           <strong>Key Responsibilities:</strong>
         </p>
@@ -220,7 +213,7 @@ const EXPERIENCES = [
             engineering.
           </li>
         </ul>
-      </CardContent>
+      </>
     ),
   },
   {
@@ -230,7 +223,7 @@ const EXPERIENCES = [
     to: " June 2023",
     location: "Melbourne, Victoria, Australia",
     description: (
-      <CardContent className="space-y-2 text-base">
+      <>
         <p>
           <strong>Key Responsibilities:</strong>
         </p>
@@ -283,7 +276,7 @@ const EXPERIENCES = [
             progress.
           </li>
         </ul>
-      </CardContent>
+      </>
     ),
   },
 ];
@@ -291,14 +284,8 @@ const EXPERIENCES = [
 function ExperienceSection() {
   return (
     <Card className="border-0 shadow-none">
-      {/* <CardHeader className="relative">
-        <Separator className="absolute top-0 left-0 translate-y-4" />
-        <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
-          experiences
-        </CardTitle>
-      </CardHeader> */}
       <CardContent>
-        <div className="relative m-6 border-l">
+        <div className="relative border-l md:m-6">
           <Accordion
             className="flex flex-col gap-2"
             type="single"
@@ -308,16 +295,16 @@ function ExperienceSection() {
             {EXPERIENCES.map((exp, index) => (
               <Card
                 key={index}
-                className="mx-6 rounded-none border-0 shadow-none not-last:border-b first:pt-0 last:pb-0"
+                className="rounded-none border-0 shadow-none not-last:border-b first:pt-0 last:pb-0 md:mx-6"
               >
                 <CardContent className="flex flex-col gap-4 px-6">
                   <AccordionItem value={exp.company}>
                     <AccordionTrigger>
                       <div className="flex w-full flex-col gap-2">
-                        <div className="flex w-full justify-between">
+                        <div className="flex w-full flex-col justify-between md:flex-row">
                           <div className="bg-muted-foreground absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full" />
                           <CardTitle>
-                            {exp.title} - {exp.company}
+                            {exp.title} @ {exp.company}
                           </CardTitle>
                           <CardDescription>
                             {exp.from} - {exp.to}
@@ -326,9 +313,10 @@ function ExperienceSection() {
                         <CardDescription>{exp.location}</CardDescription>
                       </div>
                     </AccordionTrigger>
-                    {/* <CardDescription className=""> */}
-                    <AccordionContent>{exp.description}</AccordionContent>
-                    {/* </CardDescription> */}
+
+                    <AccordionContent className="space-y-2 md:text-base">
+                      {exp.description}
+                    </AccordionContent>
                   </AccordionItem>
                 </CardContent>
               </Card>
