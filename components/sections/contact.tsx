@@ -18,24 +18,37 @@ import Link from "next/link";
 import Image from "next/image";
 import footer_bg from "@/resources/imgs/city-landscape.png";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import * as z from "zod";
+import { formSchema } from "../forms/contact-form";
+
 function ContactSection() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      fname: "",
+      lname: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  function onSubmit(data: z.infer<typeof formSchema>) {
+    console.log(data);
+  }
+
   return (
     <Card className="bg-background/0 relative overflow-hidden border-none shadow-none">
-      {/* <CardHeader className="relative">
-        <Separator className="absolute top-0 left-0 translate-y-4" />
-        <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
-          contact
-        </CardTitle>
-      </CardHeader> */}
       <CardContent>
         <Card className="bg-background/0 relative overflow-hidden">
           <Image
             src={footer_bg}
             alt="Footer Background"
-            className="absolute -z-10 object-cover object-top"
+            className="absolute -top-5 -z-10 object-cover object-top blur-[2px]"
           />
           <CardContent className="flex w-full justify-between gap-6">
-            <Card className="bg-background/95 flex w-2/5 flex-col gap-6">
+            <Card className="bg-background/92.5 flex w-2/5 flex-col gap-6">
               <CardContent className="flex grow flex-col gap-6">
                 <div className="flex grow flex-col">
                   <div className="text-muted-foreground font-serif text-4xl tracking-wide">
@@ -111,37 +124,73 @@ function ContactSection() {
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-background/95 grow">
+            <Card className="bg-background/92.5 grow">
               <CardContent className="grow">
-                <form className="h-full">
+                <form className="h-full" onSubmit={form.handleSubmit(onSubmit)}>
                   <FieldSet className="h-full">
                     <FieldGroup className="h-full">
-                      <FieldGroup className="flex flex-row">
-                        <Field>
-                          <Input
-                            id="fname"
-                            type="text"
-                            placeholder="First Name"
-                          />
-                        </Field>
-                        <Field>
-                          <Input
-                            id="lname"
-                            type="text"
-                            placeholder="Last Name"
-                          />
-                        </Field>
-                      </FieldGroup>
-                      <Field>
-                        <Input id="email" type="email" placeholder="Email" />
-                      </Field>
-                      <Field className="grow">
-                        <Textarea
-                          id="message"
-                          className="h-40 resize-none overflow-y-auto"
-                          placeholder="Message"
+                      <FieldGroup className="flex h-full flex-row">
+                        <Controller
+                          name="fname"
+                          control={form.control}
+                          render={({ field, fieldState }) => (
+                            <Field data-invalid={fieldState.invalid}>
+                              <Input
+                                {...field}
+                                aria-invalid={fieldState.invalid}
+                                id="fname"
+                                type="text"
+                                placeholder="First Name"
+                              />
+                            </Field>
+                          )}
                         />
-                      </Field>
+                        <Controller
+                          name="lname"
+                          control={form.control}
+                          render={({ field, fieldState }) => (
+                            <Field data-invalid={fieldState.invalid}>
+                              <Input
+                                {...field}
+                                aria-invalid={fieldState.invalid}
+                                id="lname"
+                                type="text"
+                                placeholder="Last Name"
+                              />
+                            </Field>
+                          )}
+                        />
+                      </FieldGroup>
+                      <Controller
+                        name="email"
+                        control={form.control}
+                        render={({ field, fieldState }) => (
+                          <Field data-invalid={fieldState.invalid}>
+                            <Input
+                              {...field}
+                              aria-invalid={fieldState.invalid}
+                              id="email"
+                              type="email"
+                              placeholder="Email"
+                            />
+                          </Field>
+                        )}
+                      />
+                      <Controller
+                        name="message"
+                        control={form.control}
+                        render={({ field, fieldState }) => (
+                          <Field className="grow">
+                            <Textarea
+                              id="message"
+                              {...field}
+                              aria-invalid={fieldState.invalid}
+                              className="h-40 resize-none overflow-y-auto"
+                              placeholder="Message"
+                            />
+                          </Field>
+                        )}
+                      />
                       <Field className="w-fit self-end">
                         <Button
                           type="submit"

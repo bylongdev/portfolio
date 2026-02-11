@@ -66,7 +66,7 @@ export default function Home() {
         {/* Features Section */}
 
         {/* Contacts Section */}
-        <section className="relative mt-20 flex w-full flex-col justify-center gap-10 py-10">
+        <section className="relative my-20 flex w-full flex-col justify-center gap-10 py-10">
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -80,7 +80,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="relative max-h-[60dvh] w-full overflow-hidden"></footer>
+      {/* <footer className="relative max-h-[60dvh] w-full overflow-hidden"></footer> */}
     </div>
   );
 }
