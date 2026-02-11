@@ -6,9 +6,12 @@ import ExperienceSection from "@/components/sections/experience";
 import ContactSection from "@/components/sections/contact";
 import { Separator } from "@/components/ui/separator";
 
+import footer_bg from "@/resources/imgs/city-landscape.png";
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative">
       <main className="m-auto flex w-9/10 max-w-360 flex-col items-center">
         {/* Navbar */}
         <NavBar />
@@ -63,7 +66,7 @@ export default function Home() {
         {/* Features Section */}
 
         {/* Contacts Section */}
-        <section className="relative my-20 flex w-full flex-col justify-center gap-10 py-10">
+        <section className="relative mt-20 flex w-full flex-col justify-center gap-10 py-10">
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -75,10 +78,9 @@ export default function Home() {
             <ContactSection />
           </div>
         </section>
-        {/* <section className="relative flex h-screen w-full flex-col justify-center gap-10">
-          <ContactSection />
-        </section> */}
       </main>
+
+      <footer className="relative max-h-[60dvh] w-full overflow-hidden"></footer>
     </div>
   );
 }
