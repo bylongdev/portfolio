@@ -1,10 +1,3 @@
-/* 
-
-Note: Add accordion for each entry to open more detail each time clicked
-
-*/
-
-import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import {
   Accordion,
@@ -303,7 +296,7 @@ function ExperienceSection() {
                       <div className="flex w-full flex-col gap-2">
                         <div className="flex w-full flex-col justify-between md:flex-row">
                           <div className="bg-muted-foreground absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full" />
-                          <CardTitle>
+                          <CardTitle className="text-base md:text-lg">
                             {exp.title} @ {exp.company}
                           </CardTitle>
                           <CardDescription>
@@ -314,7 +307,7 @@ function ExperienceSection() {
                       </div>
                     </AccordionTrigger>
 
-                    <AccordionContent className="space-y-2 md:text-base">
+                    <AccordionContent className="space-y-2">
                       {exp.description}
                     </AccordionContent>
                   </AccordionItem>

@@ -14,22 +14,22 @@ function NavBar() {
         <NavigationMenuList className="uppercase">
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link href={"/"}>About</Link>
+              <Link href={"#about"}>About</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link href={"/"}>Projects</Link>
+              <Link href={"#project"}>Projects</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link href={"/"}>Services</Link>
+              <Link href={"#experience"}>Experiences</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link href={"/"}>Contact</Link>
+              <Link href={"#contact"}>Contact</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

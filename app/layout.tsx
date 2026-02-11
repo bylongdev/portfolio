@@ -15,9 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Long Nguyen | Software Engineer",
+  title:
+    "Long Nguyen | Software Engineer | React, Next.js & Backend Developer Melbourne",
   description:
-    "Portfolio of Long Nguyen, a Melbourne-based Software Engineer building scalable web applications with React, Next.js, and modern backend technologies.",
+    "Long Nguyen is a Melbourne-based Software Engineer specialising in React, Next.js, TypeScript, Node.js, and scalable backend systems. Explore projects, experience, and modern web development work.",
+  keywords: [
+    "Long Nguyen",
+    "Software Engineer Melbourne",
+    "React Developer",
+    "Next.js Developer",
+    "Full Stack Developer",
+    "TypeScript",
+    "Node.js",
+    "Web Developer Australia",
+    "Frontend Engineer",
+    "Backend Developer",
+  ],
 };
 
 export default function RootLayout({

@@ -17,12 +17,18 @@ export default function Home() {
         <NavBar />
 
         {/* Hero Section */}
-        <section className="flex min-h-screen items-center justify-center px-10">
+        <section
+          id="hero"
+          className="flex min-h-screen items-center justify-center px-10"
+        >
           <HeroSection />
         </section>
 
         {/* About Section */}
-        <section className="relative flex w-full flex-col justify-between gap-10 py-10 md:my-20">
+        <section
+          id="about"
+          className="relative flex w-full flex-col justify-between gap-10 py-10 md:my-20"
+        >
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -36,7 +42,10 @@ export default function Home() {
         </section>
 
         {/* Project Section */}
-        <section className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20">
+        <section
+          id="project"
+          className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20"
+        >
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -50,7 +59,10 @@ export default function Home() {
         </section>
 
         {/* Experiences */}
-        <section className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20">
+        <section
+          id="experience"
+          className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20"
+        >
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -66,7 +78,10 @@ export default function Home() {
         {/* Features Section */}
 
         {/* Contacts Section */}
-        <section className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20">
+        <section
+          id="contact"
+          className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20"
+        >
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
