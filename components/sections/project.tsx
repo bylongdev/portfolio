@@ -12,10 +12,8 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
 const PROJECTS = [
@@ -91,15 +89,10 @@ const PROJECTS = [
 function ProjectSection() {
   return (
     <Card className="border-0 shadow-none">
-      <CardHeader className="relative">
-        {/* <Separator className="absolute top-0 left-0 translate-y-4" />
-        <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
-          projects
-        </CardTitle> */}
-      </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <Card className="h-100 w-full flex-row gap-6 p-0">
-          <CardContent className="flex w-fit items-center py-6">
+        {/* Main Project */}
+        <Card className="w-full gap-0 p-0 md:h-100 md:flex-row md:gap-6">
+          <CardContent className="flex w-fit items-center border-b py-6">
             <Image
               src={PROJECTS[0].img_url}
               alt="Job Tracker Thumbnail"
@@ -107,7 +100,7 @@ function ProjectSection() {
             />
           </CardContent>
 
-          <CardContent className="flex grow flex-col items-end justify-between gap-8 p-6">
+          <CardContent className="flex grow flex-col items-end justify-between gap-8 py-6 md:p-6">
             <div className="flex flex-col items-start gap-2">
               <CardTitle className="text-2xl">{PROJECTS[0].name}</CardTitle>
               <CardDescription>{PROJECTS[0].description}</CardDescription>
@@ -146,8 +139,11 @@ function ProjectSection() {
             </div>
           </CardContent>
         </Card>
+
         <CardTitle className="pt-10 text-lg">Featured Projects</CardTitle>
-        <div className="grid grid-cols-3 gap-4">
+
+        {/* Side Projects */}
+        <div className="grid auto-rows-auto gap-6 md:grid-cols-3 md:gap-4">
           {PROJECTS.slice(1).map((item, index) => (
             <Card key={index} className="pt-0">
               <CardContent className="border-b p-0">
@@ -158,19 +154,21 @@ function ProjectSection() {
                 />
               </CardContent>
               <CardFooter className="flex grow flex-col items-end justify-between gap-8">
-                <div className="flex flex-col items-start gap-2">
+                <div className="flex grow flex-col items-start gap-5">
                   <CardTitle className="text-2xl">{item.name}</CardTitle>
-                  <CardDescription>{item.description}</CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    {item.tech_stack.map((tag, index) => (
-                      <Badge
-                        key={index}
-                        variant={"secondary"}
-                        className="rounded-md text-base font-normal"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
+                  <div className="grid grow grid-rows-2 gap-5">
+                    <CardDescription>{item.description}</CardDescription>
+                    <div className="flex h-fit flex-wrap gap-2">
+                      {item.tech_stack.map((tag, index) => (
+                        <Badge
+                          key={index}
+                          variant={"secondary"}
+                          className="rounded-md text-base font-normal"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
                 </div>
 

@@ -19,7 +19,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section className="relative my-20 flex w-full flex-col justify-between gap-10 py-10">
+        <section className="relative flex w-full flex-col justify-between gap-10 py-10 md:my-20">
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -27,13 +27,13 @@ export default function Home() {
               about me
             </div>
           </div>
-          <div className="flex grow flex-col">
+          <div className="flex grow flex-col pt-10">
             <AboutSection />
           </div>
         </section>
 
         {/* Project Section */}
-        <section className="relative my-20 flex w-full flex-col justify-center gap-10 py-10">
+        <section className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20">
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -41,13 +41,13 @@ export default function Home() {
               projects
             </div>
           </div>
-          <div className="flex grow flex-col justify-center">
+          <div className="flex grow flex-col pt-10">
             <ProjectSection />
           </div>
         </section>
 
         {/* Experiences */}
-        <section className="relative my-20 flex w-full flex-col justify-center gap-10 py-10">
+        <section className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20">
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -63,7 +63,7 @@ export default function Home() {
         {/* Features Section */}
 
         {/* Contacts Section */}
-        <section className="relative my-20 flex w-full flex-col justify-center gap-10 py-10">
+        <section className="relative flex w-full flex-col justify-center gap-10 py-10 md:my-20">
           <div className="relative">
             <Separator className="absolute top-0 left-0 -z-10 translate-y-4" />
 
@@ -76,8 +76,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      {/* <footer className="relative max-h-[60dvh] w-full overflow-hidden"></footer> */}
     </div>
   );
 }

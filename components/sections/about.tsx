@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 import portrait from "@/resources/imgs/portrait.png";
 
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Separator } from "../ui/separator";
+import { Card, CardContent } from "../ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -14,12 +13,6 @@ import {
 function AboutSection() {
   return (
     <Card className="border-0 shadow-none">
-      <CardHeader className="relative">
-        {/* <Separator className="absolute top-0 left-0 translate-y-4" />
-        <CardTitle className="text-foreground/50 bg-background z-10 w-fit px-4 text-2xl font-semibold tracking-widest uppercase">
-          about me
-        </CardTitle> */}
-      </CardHeader>
       <CardContent className="flex flex-col gap-6 md:flex-row">
         <div className="flex h-100 grow justify-center md:order-2 md:h-full">
           <Image
@@ -31,7 +24,7 @@ function AboutSection() {
         </div>
         <Accordion
           type="multiple"
-          defaultValue={["who", "what", "goal", "learning", "how"]}
+          // defaultValue={["who", "what", "goal", "learning", "how"]}
           className="mx-auto w-full max-w-xl gap-4"
         >
           <AccordionItem value="who">
