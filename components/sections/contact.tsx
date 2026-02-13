@@ -6,7 +6,7 @@ import { Input } from "../ui/input";
 import { Field, FieldError, FieldGroup, FieldSet } from "../ui/field";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import { Copy, Mail } from "lucide-react";
+import { Check, Copy, Mail } from "lucide-react";
 import Link from "next/link";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,6 +19,7 @@ import { toast } from "sonner";
 
 function ContactSection() {
   const [sending, setSending] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,7 +47,8 @@ function ContactSection() {
 
       form.reset();
       toast.success("Message sent", {
-        description: "Thanks for reaching out. I’ll reply within 24–48 hours.",
+        description:
+          "Thanks for reaching out. Your message has been successfully received.",
         position: "top-center",
       });
     } catch (err) {
@@ -84,13 +86,25 @@ function ContactSection() {
                   <div className="flex items-center gap-2">
                     <Mail size={18} />
                     <h3>bylong.dev@gmail.com</h3>
-                    <Copy
-                      size={18}
-                      className="cursor-pointer hover:opacity-70"
-                      onClick={() => {
-                        navigator.clipboard.writeText("bylong.dev@gmail.com");
-                      }}
-                    />
+
+                    <div className="relative h-5 w-5">
+                      {copied ? (
+                        <Check key="check" size={18} />
+                      ) : (
+                        <Copy
+                          key="copy"
+                          size={18}
+                          className="cursor-pointer hover:opacity-70"
+                          onClick={() => {
+                            navigator.clipboard.writeText(
+                              "bylong.dev@gmail.com",
+                            );
+                            setCopied(true);
+                            setTimeout(() => setCopied(false), 1000);
+                          }}
+                        />
+                      )}
+                    </div>
                   </div>
 
                   <Link
