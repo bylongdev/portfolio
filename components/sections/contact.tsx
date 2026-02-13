@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardFooter } from "../ui/card";
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
-import { Field, FieldGroup, FieldSet } from "../ui/field";
+import { Field, FieldError, FieldGroup, FieldSet } from "../ui/field";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { Copy, Mail } from "lucide-react";
@@ -13,8 +13,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import { formSchema } from "../forms/contact-form";
+import { useState } from "react";
+import { Spinner } from "../ui/spinner";
 
 function ContactSection() {
+  const [sending, setSending] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,12 +30,15 @@ function ContactSection() {
   });
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
+    setSending(true);
     const res = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(data),
     });
 
     if (res.ok) {
+      setSending(false);
+      form.reset();
       console.log("Success");
     }
   }
@@ -129,6 +136,7 @@ function ContactSection() {
                           render={({ field, fieldState }) => (
                             <Field data-invalid={fieldState.invalid}>
                               <Input
+                                disabled={sending}
                                 {...field}
                                 aria-invalid={fieldState.invalid}
                                 id="fname"
@@ -144,6 +152,7 @@ function ContactSection() {
                           render={({ field, fieldState }) => (
                             <Field data-invalid={fieldState.invalid}>
                               <Input
+                                disabled={sending}
                                 {...field}
                                 aria-invalid={fieldState.invalid}
                                 id="lname"
@@ -160,12 +169,16 @@ function ContactSection() {
                         render={({ field, fieldState }) => (
                           <Field data-invalid={fieldState.invalid}>
                             <Input
+                              disabled={sending}
                               {...field}
                               aria-invalid={fieldState.invalid}
                               id="email"
                               type="email"
                               placeholder="Email"
                             />
+                            {fieldState.invalid && (
+                              <FieldError errors={[fieldState.error]} />
+                            )}
                           </Field>
                         )}
                       />
@@ -175,6 +188,7 @@ function ContactSection() {
                         render={({ field, fieldState }) => (
                           <Field className="grow">
                             <Textarea
+                              disabled={sending}
                               id="message"
                               {...field}
                               aria-invalid={fieldState.invalid}
@@ -190,6 +204,7 @@ function ContactSection() {
                           size={"lg"}
                           className="rounded-sm p-4"
                         >
+                          {sending && <Spinner data-icon="inline-start" />}
                           Send message
                         </Button>
                       </Field>
