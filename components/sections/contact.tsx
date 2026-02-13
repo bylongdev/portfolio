@@ -25,8 +25,15 @@ function ContactSection() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data);
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      console.log("Success");
+    }
   }
 
   return (
