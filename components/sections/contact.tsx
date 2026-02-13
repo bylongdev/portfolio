@@ -15,6 +15,7 @@ import * as z from "zod";
 import { formSchema } from "../forms/contact-form";
 import { useState } from "react";
 import { Spinner } from "../ui/spinner";
+import { toast } from "sonner";
 
 function ContactSection() {
   const [sending, setSending] = useState(false);
@@ -31,15 +32,32 @@ function ContactSection() {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     setSending(true);
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
 
-    if (res.ok) {
-      setSending(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        throw new Error(await res.text());
+      }
+
       form.reset();
-      console.log("Success");
+      toast.success("Message sent", {
+        description: "Thanks for reaching out. I’ll reply within 24–48 hours.",
+        position: "top-center",
+      });
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to send message", {
+        description:
+          "Please try again or email me directly at bylong.dev@gmail.com.",
+        position: "top-center",
+      });
+    } finally {
+      setSending(false);
     }
   }
 
@@ -205,7 +223,7 @@ function ContactSection() {
                           className="rounded-sm p-4"
                         >
                           {sending && <Spinner data-icon="inline-start" />}
-                          Send message
+                          {sending ? "Sending…" : "Send message"}
                         </Button>
                       </Field>
                     </FieldGroup>
