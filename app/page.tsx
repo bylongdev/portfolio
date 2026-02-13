@@ -11,10 +11,10 @@ import footer_bg from "@/resources/imgs/city-landscape.png";
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
+      <NavBar />
       <main className="m-auto flex max-w-360 flex-col items-center md:w-9/10">
         {/* Navbar */}
-        <NavBar />
 
         {/* Hero Section */}
         <section

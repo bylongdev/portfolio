@@ -9,7 +9,7 @@ import Link from "next/link";
 
 function NavBar() {
   return (
-    <div className="absolute top-0 flex w-full justify-center pt-10">
+    <div className="bg-muted/20 sticky top-0 z-10 mt-5 flex w-full justify-center py-5 backdrop-blur-md">
       <NavigationMenu>
         <NavigationMenuList className="uppercase">
           <NavigationMenuItem>

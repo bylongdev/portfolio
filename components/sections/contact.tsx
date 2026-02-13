@@ -8,8 +8,6 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { Copy, Mail } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import footer_bg from "@/resources/imgs/city-landscape.png";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
@@ -66,7 +64,7 @@ function ContactSection() {
                   <Link
                     href={"https://www.linkedin.com/in/bylongdev"}
                     target="_blank"
-                    className="flex items-center gap-2"
+                    className="flex w-fit items-center gap-2"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +82,7 @@ function ContactSection() {
                   <Link
                     href={"https://github.com/bylongdev"}
                     target="_blank"
-                    className="flex items-center gap-2"
+                    className="flex w-fit items-center gap-2"
                   >
                     <svg
                       role="img"
