@@ -15,6 +15,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
 
 const PROJECTS = [
   {
@@ -143,59 +150,68 @@ function ProjectSection() {
         <CardTitle className="pt-10 text-lg">Featured Projects</CardTitle>
 
         {/* Side Projects */}
-        <div className="grid auto-rows-auto gap-6 md:grid-cols-3 md:gap-4">
-          {PROJECTS.slice(1).map((item, index) => (
-            <Card key={index} className="pt-0">
-              <CardContent className="border-b p-0">
-                <Image
-                  src={item.img_url}
-                  alt="Job Tracker Thumbnail"
-                  className="h-80 w-full rounded-t-xl object-cover object-top"
-                />
-              </CardContent>
-              <CardFooter className="flex grow flex-col items-end justify-between gap-8">
-                <div className="flex grow flex-col items-start gap-5">
-                  <CardTitle className="text-2xl">{item.name}</CardTitle>
-                  <div className="grid grow grid-rows-2 gap-5">
-                    <CardDescription>{item.description}</CardDescription>
-                    <div className="flex h-fit flex-wrap gap-2">
-                      {item.tech_stack.map((tag, index) => (
-                        <Badge
-                          key={index}
-                          variant={"secondary"}
-                          className="rounded-md text-base font-normal"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
+        <Carousel
+          className="w-full auto-rows-auto gap-6"
+          opts={{
+            align: "start",
+          }}
+        >
+          <CarouselContent>
+            {PROJECTS.slice(1).map((item, index) => (
+              <CarouselItem key={index} className="basis-1/1 lg:basis-1/3">
+                <Card className="h-full pt-0">
+                  <CardContent className="border-b p-0">
+                    <Image
+                      src={item.img_url}
+                      alt="Job Tracker Thumbnail"
+                      className="h-80 w-full rounded-t-xl object-cover object-top"
+                    />
+                  </CardContent>
+                  <CardFooter className="flex grow flex-col items-end justify-between gap-8">
+                    <div className="flex grow flex-col items-start gap-5">
+                      <CardTitle className="text-2xl">{item.name}</CardTitle>
+                      <div className="grid grow grid-rows-2 gap-5">
+                        <CardDescription>{item.description}</CardDescription>
+                        <div className="flex h-fit flex-wrap gap-2">
+                          {item.tech_stack.map((tag, index) => (
+                            <Badge
+                              key={index}
+                              variant={"secondary"}
+                              className="rounded-md text-base font-normal"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="flex gap-2 justify-self-end">
-                  <Button
-                    variant={"default"}
-                    className="hover:cursor-pointer"
-                    disabled={!item.github}
-                  >
-                    <Link href={item.github} target="_blank">
-                      View code
-                    </Link>
-                  </Button>
-                  <Button
-                    variant={"outline"}
-                    className="hover:cursor-pointer"
-                    disabled={!item.demo}
-                  >
-                    <Link href={item.demo} target="_blank">
-                      Live demo
-                    </Link>
-                  </Button>
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+                    <div className="flex gap-2 justify-self-end">
+                      <Button
+                        variant={"default"}
+                        className="hover:cursor-pointer"
+                        disabled={!item.github}
+                      >
+                        <Link href={item.github} target="_blank">
+                          View code
+                        </Link>
+                      </Button>
+                      <Button
+                        variant={"outline"}
+                        className="hover:cursor-pointer"
+                        disabled={!item.demo}
+                      >
+                        <Link href={item.demo} target="_blank">
+                          Live demo
+                        </Link>
+                      </Button>
+                    </div>
+                  </CardFooter>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </CardContent>
     </Card>
   );
