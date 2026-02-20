@@ -7,7 +7,10 @@ function HeroSection() {
     <div className="flex grow flex-col items-center justify-center gap-2">
       <h1 className="text-5xl font-semibold capitalize">Long Nguyen</h1>
       <h2 className="font-mono text-2xl tracking-wider">Software Engineer</h2>
-      <p className="pt-4 pb-2">Building tools that solve real problems</p>
+      <p className="pt-4 pb-2 text-center md:text-start">
+        Software Engineer building production-ready web apps and backend
+        systems.
+      </p>
       <div className="flex gap-2">
         <Button className="hover:cursor-pointer">
           <Link href={"#project"}>View projects</Link>

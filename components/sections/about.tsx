@@ -14,7 +14,7 @@ function AboutSection() {
   return (
     <Card className="border-0 shadow-none">
       <CardContent className="flex flex-col gap-6 md:flex-row">
-        <div className="flex h-100 grow justify-center md:order-2 md:h-full">
+        <div className="flex h-100 grow justify-center self-center md:order-2 md:h-full">
           <Image
             src={portrait}
             alt="Portrait"
@@ -30,44 +30,41 @@ function AboutSection() {
           <AccordionItem value="who">
             <AccordionTrigger>Who am I?</AccordionTrigger>
             <AccordionContent>
-              I&apos;m a Software Engineer based in Melbourne who enjoys
-              building practical systems and understanding how things work under
-              the hood. I&apos;m naturally curious and like digging into
-              problems until I understand both the “how” and the “why”.
+              I&apos;m a Melbourne-based Software Engineer with experience
+              building full-stack web applications across backend systems and
+              user interfaces.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="what">
             <AccordionTrigger>What do I do?</AccordionTrigger>
             <AccordionContent>
-              I focus on backend development, API design, and database-driven
-              applications. I enjoy designing clear structures, keeping systems
-              maintainable, and making sure features are built with long-term
-              stability in mind.
+              Developing backend-driven applications, including designing
+              database schemas, building RESTful APIs, and delivering
+              user-facing features with long-term maintainability in mind.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="how">
             <AccordionTrigger>How do I work?</AccordionTrigger>
             <AccordionContent>
-              I prefer a step-by-step approach: break problems down, design a
-              simple solution, build a working version, and refine it over time.
-              I value clarity, consistency, and thoughtful trade-offs over
-              unnecessary complexity.
+              Breaking down problems into small deliverables, build working
+              solutions early, and refine them through iterative development
+              with proper logging and error handling.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="learning">
             <AccordionTrigger>What am I learning right now?</AccordionTrigger>
             <AccordionContent>
-              I’m continuously improving my understanding of backend
-              architecture, system design, and performance. I like learning by
-              building real projects and iterating on them.
+              Backend system design, PostgreSQL performance optimisation, and
+              caching strategies using Redis through hands-on project
+              development.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="goal">
             <AccordionTrigger>What is my goal?</AccordionTrigger>
             <AccordionContent>
-              To grow into a strong backend engineer and contribute to teams
-              that value clean architecture, good engineering practices, and
-              real-world impact.
+              To grow into a strong backend engineer who can take ownership of
+              features end-to-end and contribute to well-structured,
+              product-focused teams.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

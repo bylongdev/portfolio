@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import {
   Accordion,
@@ -6,309 +7,149 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 
-const EXPERIENCES = [
+type Experience = {
+  id: string;
+  title: string;
+  company: string;
+  from: string;
+  to: string;
+  location: string;
+  whatIDid: string[];
+  impact: string[];
+};
+
+const EXPERIENCES: Experience[] = [
   {
+    id: "businesslocal",
     title: "Junior Software Engineer",
     company: "BusinessLocal",
     from: "November 2024",
-    to: " June 2025",
+    to: "June 2025",
     location: "Melbourne, Victoria, Australia",
-    description: (
-      <>
-        <p>
-          <strong>Key Responsibilities:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            Developing and maintaining responsive websites tailored to client
-            business goals, including custom UI elements and dynamic features
-            using PHP, HTML, and CSS.
-          </li>
-          <li>
-            Optimising front-end performance by minifying CSS/PHP and
-            implementing lazy loading to ensure seamless user experience across
-            devices.
-          </li>
-          <li>
-            Implementing SEO best practices with semantic HTML structure, meta
-            tags, and schema markup to boost visibility and rankings.
-          </li>
-          <li>
-            Collaborating with design, marketing, and content teams to align
-            websites with branding and campaign objectives.
-          </li>
-          <li>
-            Providing technical support, regular updates, and created
-            documentation to standardise workflows and support new developers.
-          </li>
-          <li>
-            Assisting in QA testing to resolve cross-browser compatibility
-            issues prior to deployment.
-          </li>
-          <li>
-            Investigated and fixed server-side issues, including data handling
-            bugs and production errors, improving system reliability.
-          </li>
-        </ul>
-
-        <p>
-          <strong>Key Highlights:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            <strong>Website Development:</strong> Migrated legacy client sites
-            to mobile-first architecture, reducing maintenance overhead by 25%.
-          </li>
-          <li>
-            <strong>Development Efficiency:</strong> Introduced a reusable
-            component library, cutting new page build time by 40%.
-          </li>
-          <li>
-            <strong>Conversion Optimisation:</strong> Piloted A/B testing on
-            landing pages, increasing lead conversion rates by up to 18%.
-          </li>
-          <li>
-            <strong>Uptime Reliability:</strong> Achieved 99.9% uptime by
-            resolving hosting misconfigurations and database errors.
-          </li>
-        </ul>
-      </>
-    ),
+    whatIDid: [
+      "Built and maintained client websites end-to-end, delivering responsive pages, reusable UI components, and dynamic PHP features aligned to business goals.",
+      "Improved performance and reliability by refactoring CSS/PHP, adding lazy-loading, and debugging production issues across hosting and data handling.",
+      "Lifted search visibility by implementing semantic HTML, metadata, and schema in collaboration with marketing and content teams.",
+    ],
+    impact: [
+      "Reduced maintenance overhead by 25% through mobile-first rebuilds and reusable components.",
+      "Increased landing page conversions by up to 18% via A/B testing and iterative releases.",
+    ],
   },
   {
+    id: "auswise",
     title: "Junior Software Engineer",
     company: "AusWISE",
     from: "May 2024",
-    to: " April 2025",
+    to: "April 2025",
     location: "Melbourne, Victoria, Australia",
-    description: (
-      <>
-        <p>
-          <strong>Key Responsibilities:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            Building user-friendly web applications with Wix Studio, designing
-            responsive layouts, intuitive navigation, and interactive features.
-          </li>
-          <li>
-            Managing automated email workflows, troubleshooting delivery issues
-            and extracting performance data for reporting.
-          </li>
-          <li>
-            Coordinating project tasks, timelines, and stakeholder communication
-            to keep deliverables on track.
-          </li>
-          <li>
-            Monitoring website performance, conducting speed audits, and
-            applying optimisations to improve user experience.
-          </li>
-          <li>
-            Collaborating in agile sprints, daily stand-ups, and code reviews to
-            accelerate delivery.
-          </li>
-        </ul>
-
-        <p>
-          <strong>Key Highlights:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            <strong>Web Application Development:</strong> Delivered
-            mobile-responsive applications with search functionality and
-            consistent branding.
-          </li>
-          <li>
-            <strong>Process Automation:</strong> Reduced manual workload by 30%
-            through automated email workflows and streamlined data extraction.
-          </li>
-          <li>
-            <strong>Team Collaboration:</strong> Improved delivery speed by 20%
-            through active participation in sprints and daily stand-ups.
-          </li>
-          <li>
-            <strong>Performance Monitoring:</strong> Boosted engagement metrics
-            by optimising site speed via image compression and code cleanup.
-          </li>
-          <li>
-            <strong>Issue Resolution:</strong> Prevented delays by resolving
-            technical issues such as broken links, email failures, and
-            integration errors.
-          </li>
-        </ul>
-      </>
-    ),
+    whatIDid: [
+      "Delivered responsive Wix Studio applications with consistent branding, navigation, and interactive components.",
+      "Automated email workflows and reporting, troubleshooting delivery failures and reducing manual admin effort.",
+      "Improved site performance through audits and optimisation (image compression, content cleanup).",
+    ],
+    impact: [
+      "Reduced manual workload by 30% through automation and streamlined reporting.",
+      "Improved delivery speed by 20% through consistent sprint execution and handoffs.",
+    ],
   },
   {
-    title: "Front Developer",
+    id: "governsafe",
+    title: "Front-end Developer",
     company: "GovernSafe",
     from: "August 2024",
-    to: " June 2025",
+    to: "June 2025",
     location: "Melbourne, Victoria, Australia",
-    description: (
-      <>
-        <p>
-          <strong>Key Responsibilities:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            Assisting in developing user-friendly web interfaces using React,
-            JavaScript, HTML, and CSS.
-          </li>
-          <li>
-            Implementing responsive layouts and UI components to improve
-            usability across desktop and mobile devices.
-          </li>
-          <li>
-            Collaborating with senior developers and designers to translate
-            wireframes and mock-ups into functional features.
-          </li>
-          <li>
-            Contributing to code reviews, debugging, and front-end optimisation
-            to enhance performance and maintainability.
-          </li>
-          <li>
-            Participating in daily stand-ups and agile sprints, learning best
-            practices in version control with Git and collaborative workflows.
-          </li>
-          <li>
-            Providing documentation and notes for implemented features to
-            support future development and team knowledge-sharing.
-          </li>
-        </ul>
-
-        <p>
-          <strong>Key Highlights:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            <strong>UI/UX Contribution:</strong> Supported the design and build
-            of intuitive, responsive interfaces, improving overall user
-            experience.
-          </li>
-          <li>
-            <strong>Front-End Skill Growth:</strong> Gained hands-on experience
-            with React and JavaScript by contributing to real client features.
-          </li>
-          <li>
-            <strong>Collaboration:</strong> Worked closely with cross-functional
-            teams, gaining exposure to agile delivery and team-based
-            development.
-          </li>
-          <li>
-            <strong>Performance Enhancement:</strong> Assisted in debugging and
-            optimising UI components, helping reduce load times and improve
-            responsiveness.
-          </li>
-          <li>
-            <strong>Learning Milestone:</strong> Applied academic knowledge in a
-            live project environment, building confidence in frontend
-            engineering.
-          </li>
-        </ul>
-      </>
-    ),
+    whatIDid: [
+      "Implemented React UI components and responsive layouts from wireframes.",
+      "Improved UX and performance by debugging UI issues and reducing unnecessary re-renders.",
+      "Contributed to delivery through Git workflows, code reviews, and documentation.",
+    ],
+    impact: [
+      "Shipped UI improvements that reduced layout bugs across breakpoints.",
+      "Improved front-end stability through targeted bug fixes and refactors.",
+    ],
   },
   {
-    title: "Team Lead | Software Engineer | Web Development",
+    id: "latrobe",
+    title: "Team Lead | Software Engineer",
     company: "La Trobe University",
     from: "March 2023",
-    to: " June 2023",
+    to: "June 2023",
     location: "Melbourne, Victoria, Australia",
-    description: (
-      <>
-        <p>
-          <strong>Key Responsibilities:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            Leading front-end development of a React-based web application to
-            streamline product mock-up workflows.
-          </li>
-          <li>
-            Integrating the Cloudinary API for real-time image handling,
-            improving UI responsiveness and interactivity.
-          </li>
-          <li>
-            Coordinating task distribution, sprint planning, and progress
-            tracking to maintain steady delivery momentum.
-          </li>
-          <li>
-            Ensuring smooth knowledge transfer during handovers, supporting team
-            continuity across sprints.
-          </li>
-          <li>
-            Utilising Jira for agile project management, GitHub for version
-            control, and VSCode for efficient coding workflows.
-          </li>
-        </ul>
-
-        <p>
-          <strong>Key Highlights:</strong>
-        </p>
-        <ul className="list-disc px-5">
-          <li>
-            <strong>Leadership:</strong> Directed a small team of developers,
-            fostering collaboration and guiding feature implementation.
-          </li>
-          <li>
-            <strong>Front-End Innovation:</strong> Enhanced mock-up workflow
-            efficiency through React components and Cloudinary integration.
-          </li>
-          <li>
-            <strong>Performance Gain:</strong> Achieved a 65% improvement in
-            project delivery speed within the internship period.
-          </li>
-          <li>
-            <strong>Delivery Impact:</strong> Contributed to completing 80% of
-            the web application by the end of the placement.
-          </li>
-          <li>
-            <strong>Agile Methodologies:</strong> Applied agile practices with
-            Jira, daily stand-ups, and sprint planning to ensure steady
-            progress.
-          </li>
-        </ul>
-      </>
-    ),
+    whatIDid: [
+      "Led front-end delivery of a React web application across sprint cycles.",
+      "Integrated Cloudinary for real-time image upload and processing.",
+      "Coordinated task planning and delivery using Jira and GitHub.",
+    ],
+    impact: [
+      "Improved delivery speed by 65% through clearer task breakdown.",
+      "Completed ~80% of application scope within placement period.",
+    ],
   },
 ];
 
 function ExperienceSection() {
+  const defaultOpen = EXPERIENCES[0]?.id;
+
   return (
     <Card className="border-0 shadow-none">
       <CardContent>
-        <div className="relative border-l md:m-6">
+        {/* timeline rail */}
+        <div className="relative md:m-6">
+          <div className="bg-border absolute top-0 left-3 h-full w-px md:left-6" />
+
           <Accordion
             className="flex flex-col gap-2"
             type="single"
             collapsible
-            defaultValue={EXPERIENCES[0].company}
+            defaultValue={defaultOpen}
           >
-            {EXPERIENCES.map((exp, index) => (
+            {EXPERIENCES.map((exp) => (
               <Card
-                key={index}
-                className="rounded-none border-0 shadow-none not-last:border-b first:pt-0 last:pb-0 md:mx-6"
+                key={exp.id}
+                className="rounded-none border-0 shadow-none md:mr-2 md:ml-6"
               >
-                <CardContent className="flex flex-col gap-4 px-6">
-                  <AccordionItem value={exp.company}>
-                    <AccordionTrigger>
-                      <div className="flex w-full flex-col gap-2">
-                        <div className="flex w-full flex-col justify-between md:flex-row">
-                          <div className="bg-muted-foreground absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full" />
+                <CardContent className="relative flex flex-col gap-4 px-0">
+                  {/* dot */}
+                  <span className="bg-muted-foreground absolute top-7 left-3 h-3 w-3 -translate-x-1/2 rounded-full md:left-0" />
+
+                  <AccordionItem
+                    value={exp.id}
+                    className="border-b last:border-b-0"
+                  >
+                    <AccordionTrigger className="px-6">
+                      <div className="flex w-full flex-col gap-2 text-left">
+                        <div className="flex w-full flex-col justify-between gap-1 md:flex-row md:items-center">
                           <CardTitle className="text-base md:text-lg">
                             {exp.title} @ {exp.company}
                           </CardTitle>
                           <CardDescription>
-                            {exp.from} - {exp.to}
+                            {exp.from} – {exp.to}
                           </CardDescription>
                         </div>
                         <CardDescription>{exp.location}</CardDescription>
                       </div>
                     </AccordionTrigger>
 
-                    <AccordionContent className="space-y-2">
-                      {exp.description}
+                    <AccordionContent className="space-y-4 px-6 pb-6 text-sm">
+                      <div>
+                        <p className="mb-1 font-medium">What I did</p>
+                        <ul className="list-disc space-y-1 pl-5">
+                          {exp.whatIDid.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="mb-1 font-medium">Impact</p>
+                        <ul className="list-disc space-y-1 pl-5">
+                          {exp.impact.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                 </CardContent>
