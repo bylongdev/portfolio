@@ -101,13 +101,13 @@ function ProjectSection() {
       <CardContent className="flex flex-col gap-4">
         {/* Main Project */}
         <Card className="w-full gap-0 p-0 md:flex-row md:gap-6">
-          <CardContent className="w-full border-b p-0 md:w-105 md:border-r md:border-b-0">
+          <CardContent className="w-full grow border-b p-0 md:border-r md:border-b-0">
             <div className="relative h-64 w-full md:h-full md:min-h-90">
               <Image
                 src={main.img_url}
                 alt={`${main.name} thumbnail`}
                 fill
-                className="object-cover"
+                className="rounded-l-2xl object-cover"
                 priority
               />
             </div>
